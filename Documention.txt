@@ -1,0 +1,30 @@
+we have 5 stages for pipeline which is seperated in 5 methods .
+when we need to pass data from stages to other stages we use pipeline registers as shown below .
+
+
+	public static ArrayList <R_Instruction> R_ID_EXE = new ArrayList<>() ; //list of r-instructions
+	public static ArrayList <String> R_EXE_WB = new ArrayList<>() ;			//list of (Strings)  value we need too pass from EXE to WB (for r-instructions)
+	public static ArrayList <I_Instruction> I_ID_EXE = new ArrayList<>() ; //list of i-instructions
+	public static ArrayList <Integer> I_EXE_MEM = new ArrayList<>() ;	//list of (Integer) value we need too pass from EXE to MEM (for i-instructions) index
+	public static ArrayList <String> I_MEM_WB = new ArrayList<>() ;		//list of (Strings) values for load (from mem to wb)	
+
+	
+DataMemory is saved in a file which helps to keep data in different runs.
+InstructionsMemory is created in code .
+and we have a loop which controls the main pipeline and call stages on their time .
+Also we have classes for Instruction , R_Instruction , I_Instruction to store in pipeline registers .
+I have different decoders for each instruction type which all handled by Decode Method and same for Execution .
+Memory method are used only for r type instructions .
+and 2 wb methods which i call in main pipeline control .
+SyncMem method will sync and update Memory every time.
+Jump instruction are also handled as they should be .(J Decoder)
+DataHazard are also handled by 2 seperate method for ex and mem .(they only warn you and doesnt fix anything). 
+for this i stored every rt,rs,rd registers so i can compaire them and detect hazard.
+RegisterFile InstructionSet and other arrays also created in related methods.
+
+
+
+more details in code and comments .
+
+
+Sina Azimi-9532257
